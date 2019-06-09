@@ -1,3 +1,39 @@
 header {
-  display: block;
+  background-color: @text-color-light;
+
+  .container-logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    height: 60px;
+  }
+}
+
+.logo {
+  font-size: 17px;
+  line-height: 60px;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.tel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 14px;
+  line-height: 30px;
+  text-align: right;
+  margin: 0;
+  padding: 0;
+  max-width: 50%;
+  
+  & a {
+    white-space: nowrap;
+    display: inline-block;
+    margin-left: 15px;
+    color: #ffffff;
+    text-decoration: underline;
+  }
 }

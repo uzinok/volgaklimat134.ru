@@ -38,13 +38,14 @@ section {
   &:nth-child(even) {
     background-color: @bg-color-light;
   }
-  
+
   &:nth-child(odd) {
     background-color: @bg-color-dark;
   }
 }
 
 h2 {
+  margin: 0;
   font-size: 18px;
   line-height: 45px;
   color: @text-color-dark;
@@ -70,4 +71,18 @@ h2 {
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+.hide-mobile {
+  display: none;
+
+  @media (min-width: @min-width-tablet) {
+    display: block;
+  }
+}
+
+.visible-mobile {
+  @media (min-width: @min-width-tablet) {
+    display: none;
+  }
 }

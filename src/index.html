@@ -80,7 +80,7 @@
                         <div class="container">
                                 <ul class="list-rezet action__list">
                                         <li class="action__item">
-                                                <svg width="105" height="105" class="action__svg" role="img">
+                                                <svg width="105" height="105" class="action__svg" >
                                                         <use xlink:href="#tel"></use>
                                                 </svg>
                                                 <button class="btn action__btn">Вызываете мастера</button>
@@ -88,7 +88,7 @@
                                                 </p>
                                         </li>
                                         <li class="action__item">
-                                                <svg width="105" height="105" class="action__svg" role="img">
+                                                <svg width="105" height="105" class="action__svg" >
                                                         <use xlink:href="#service"></use>
                                                 </svg>
                                                 <p class="action__title">Приезжаем, обслуживаем</p>
@@ -96,7 +96,7 @@
                                                         за 1-2 часа</p>
                                         </li>
                                         <li class="action__item">
-                                                <svg width="105" height="105" class="action__svg" role="img">
+                                                <svg width="105" height="105" class="action__svg" >
                                                         <use xlink:href="#split"></use>
                                                 </svg>
                                                 <p class="action__title">Пользуетесь кондиционером</p>
@@ -148,19 +148,48 @@
                 </section>
 
                 <section class="section contact">
-                        <div class="container">
-                                <h2 class="contact__title">Вызвать мастера</h2>
-                                <p class="contact__text">можно по телефонам:
-                                        <a class="contact__tel" href="tel:+78442505685">+7(8442)505-685</a>
-                                        или
-                                        <a class="contact__tel" href="tel:+79377137024">+7(937)713-70-24</a>
-                                        с 8:00 до 21:00</p>
+                        <h2 class="contact__title">Вызвать мастера</h2>
+                        <div class="container contact__container">
+                                <div class="contact__block-text">
+
+                                        <p class="contact__text visible-mobile">можно по телефонам:
+                                                <br class="visible-mobile">
+                                                <a class="contact__tel" href="tel:+78442505685">+7(8442)505-685</a>
+                                                или
+                                                <a class="contact__tel" href="tel:+79377137024">+7(937)713-70-24</a>
+                                                <br class="visible-mobile">
+                                                с 8:00 до 21:00</p>
+                                        <div class="hide-mobile">
+
+                                                <p class="contact__text">Котактные телефоны:
+                                                        <br>
+                                                        <a class="contact__tel"
+                                                                href="tel:+78442505685">+7(8442)505-685</a>
+                                                        или
+                                                        <a class="contact__tel"
+                                                                href="tel:+79377137024">+7(937)713-70-24</a>
+                                                                <br>
+                                                        с 8:00 до 21:00 или заполните форму.</p>
+
+                                                <div class="contact__handshake">
+                                                        <p>И, конечно дадим пару советов для
+                                                                самостоятельного бслуживания сплит-системы</p>
+                                                                <svg width="135" height="105">
+                                                                        <use xlink:href="#handshake"></use>
+                                                                </svg>
+
+                                                </div>
+                                                <p class="contact__text">Быстро, качественно, недорого.</p>
+                                                <p class="contact__text">Комфорт в вашем доме на долго</p>
+                                        </div>
+                                </div>
 
                                 <form action="#" class="contact__form">
                                         <input class="contact__input" type="text" placeholder="ваше имя">
                                         <input class="contact__input" type="tel" placeholder="ваш телефон">
                                         <div class="select-wrap">
                                                 <select class="contact__select" name="" id="">
+                                                        <option>ваш район города</option>
                                                         <option>ваш район города</option>
                                                 </select>
                                         </div>
@@ -169,9 +198,22 @@
                                                         <option>выберете услугу</option>
                                                 </select>
                                         </div>
-                                        <textarea class="contact__textarea" name="" id="" placeholder="дополнительный комментарий"></textarea>
+                                        <textarea class="contact__textarea" name="" id=""
+                                                placeholder="дополнительный комментарий"></textarea>
                                         <button class="contact__submit">Отправить заявку</button>
                                 </form>
+                        </div>
+                </section>
+
+                <section class="section links">
+                        <div class="container">
+                                <h2 class="links__title">Интересные и полезные статьи</h2>
+
+                                <ul class="list-rezet links__list">
+                                        <li class="links__item"><a href="#" class="links__link">Как выбрать сплит-систему</a></li>
+                                        <li class="links__item"><a href="#" class="links__link">Как самому почистить сплит систему</a></li>
+                                        <li class="links__item"><a href="#" class="links__link">Еще статья</a></li>
+                                </ul>
                         </div>
                 </section>
 

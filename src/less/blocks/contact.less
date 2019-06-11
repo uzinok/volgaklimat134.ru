@@ -1,6 +1,23 @@
+.contact {
+    padding-bottom: 45px;
+}
+
+.contact__block-text {
+    margin: 0 auto;
+    max-width: 615px;
+
+    @media (min-width: @min-width-tablet) {
+        margin: 0;
+    }
+}
 .contact__text {
     font-size: 14px;
     text-align: center;
+
+    @media (min-width: @min-width-tablet) {
+        font-size: 22px;
+        line-height: 34px;
+    }
 }
 
 .contact__tel {
@@ -14,4 +31,101 @@
     display: flex;
     flex-direction: column;
     justify-content: stretch;
+    @media (min-width: @min-width-tablet) {
+        margin: 0;
+    }
+}
+
+.contact__container {
+
+    @media (min-width: @min-width-tablet) {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.contact__input,
+.contact__select,
+.contact__textarea {
+    display: block;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    height: 45px;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    font-size: 15px;
+    line-height: 1;
+    border: none;
+    border-bottom: 1px solid rgba(@text-color-light, 0.5);
+    background-color: #ffffff;
+    overflow: hidden;
+    font-size: 14px;
+    color: #000000;
+
+    &::placeholder {
+        color: @text-color-dark;
+    }
+}
+
+.select-wrap {
+    position: relative;
+    background-color: #fff;
+    margin: 0 0 15px;
+
+    &::before,
+    &::after {
+        display: block;
+        content: "";
+        position: absolute;
+    }
+
+    &::before {
+        opacity: 0.5;
+        width: 1px;
+        height: 45px;
+        top: 0;
+        right: 45px;
+        background-color: @text-color-light;
+    }
+
+    &::after {
+        width: 8px;
+        height: 8px;
+        border-top: 1px solid @text-color-dark;
+        border-left: 1px solid @text-color-dark;
+        top: 17px;
+        right: 19px;
+        transform: rotate(-135deg);
+    }
+}
+
+.contact__select {
+    appearance: none;
+    background-color: transparent;
+    margin: 0;
+}
+
+.contact__submit {
+    width: 100%;
+    height: 45px;
+    box-sizing: border-box;
+    background-color: #fff;
+    border: 2px solid @button-color;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.contact__handshake {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    p {
+        text-align: center;
+        line-height: 2;
+    }
 }

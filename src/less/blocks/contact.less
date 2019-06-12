@@ -57,13 +57,12 @@
     padding: 15px;
     box-sizing: border-box;
     height: 45px;
-    box-sizing: border-box;
     width: 100%;
     max-width: 100%;
     font-size: 15px;
-    line-height: 1px solid transparent;
-    border: none;
-    border-bottom: 1px solid rgba(@text-color-light, 0.5);
+    line-height: 45px;
+    border: 1px solid transparent;
+    border-bottom-color: @text-color-light;
     background-color: #ffffff;
     overflow: hidden;
     font-size: 14px;
@@ -72,8 +71,25 @@
     &::placeholder {
         color: rgba(@text-color-dark, 0.5);
     }
+
+    &:hover {
+        border-color: @button-color;
+    }
+
+    &:focus,
+    &:active {
+        outline: none;
+        border-color: @text-color-light;
+    }
 }
 
+.contact__input,
+.contact__textarea {
+    border-bottom-color: @text-color-light;
+}
+.contact__textarea {
+    line-height: 15px;
+}
 .select-wrap {
     position: relative;
     background-color: #fff;
@@ -110,6 +126,8 @@
     appearance: none;
     background-color: transparent;
     margin: 0;
+    border-color: @text-color-light;
+    line-height: 13px;
 }
 
 .contact__submit {
@@ -120,6 +138,7 @@
     border: 2px solid @button-color;
     font-size: 14px;
     text-transform: uppercase;
+    color: @text-color-dark;
 
     &:hover {
         background-color: @button-color;

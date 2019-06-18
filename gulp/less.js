@@ -11,10 +11,12 @@ gulp.task("less", function () {
     .pipe(plumber())
     .pipe(less())
     .pipe(postcss([
-      autoprefixer({
-        browsers: ['last 2 versions'],
-        cascade: false
-      })
+      autoprefixer(
+      //   {
+      //   browsers: ['last 2 versions'],
+      //   cascade: false
+      // }
+      )
     ]))
     .pipe(csso())
     .pipe(gulp.dest("build/css"))

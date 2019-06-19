@@ -3,15 +3,57 @@
     position: fixed;
     padding: 0;
     margin: 0;
-    left: 3px;
+    left: 0px;
     top: 50%;
     transform: translateY(-50%);
 }
 
 .main-menu__button {
     display: block;
-    width: 10px;
-    height: 10px;
+    width: 15px;
+    height: 15px;
+    margin: 3px;
     border-radius: 50%;
     background-color: @text-color-dark;
+    box-sizing: border-box;
+
+    &.active {
+        background-color: @text-color-light;
+    }
+
+    &:hover,
+    &.hover {
+        opacity: 1;
+        position: relative;
+        background-color: @button-color;
+        border: 1px solid @text-color-dark;
+
+        &::after {
+            display: block;
+            content: ' ' attr(data-title) ' ';
+            background-color: @button-color;
+            padding: 7px;
+            position: absolute;
+            left: 28px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 5px;
+            font-size: 14px;
+            line-height: 1;
+            color: #000000;
+            text-align: center;
+        }
+
+        &::before {
+            display: block;
+            content: "";
+            width: 15px;
+            height: 15px;
+            background-color: @button-color;
+            position: absolute;
+            left: 21px;
+            top: 50%;
+            transform: translateY(-50%) rotate(45deg);
+        }
+    }
 }

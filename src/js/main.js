@@ -1,13 +1,5 @@
 window.onload = function () {
-    
-    document.addEventListener("touchstart", function() {
-        var clear_class = document.querySelectorAll(".hover");
-        for(var i = 0; i < clear_class.length; i++) {
-            clear_class[i].classList.remove("hover");
-        }
-
-    });
-
+    // меню
     var 
         menu = document.querySelector(".main-menu"),
         section_scroll = document.querySelectorAll(".section-js");
@@ -26,21 +18,6 @@ window.onload = function () {
             button_menu.setAttribute("data-title", my_attr);
             button_menu.setAttribute("href", "#" + my_id);
 
-            button_menu.addEventListener("touchstart", function(e) {
-                e.preventDefault();
-
-                console.log(e);
-
-                if(this.classList.contains("hover")) {
-                    this.classList.remove("hover");
-                    my_scroll(this);
-                }
-                else {
-                    this.classList.add("hover");
-                }
-                
-            });
-
             button_menu.addEventListener("mouseover", function() {
                 this.classList.add("menu-scroll");
             });
@@ -54,14 +31,13 @@ window.onload = function () {
 
                 my_scroll(this);
             });
-            
-            
-
-            
+             
         }
 
-        
+        // \меню
 
+        
+        // функция скрола
         function my_scroll(button_menu) {
             var
                 hash = button_menu.getAttribute("href"),
@@ -76,8 +52,10 @@ window.onload = function () {
                 });
         }
 
+        // функция скрола
 
 
+        // скролл по якорям
         var my_scroll_btn = document.querySelectorAll(".button-scroll");
 
         for(var i = 0; i < my_scroll_btn.length; i++) {
@@ -88,6 +66,20 @@ window.onload = function () {
                     my_scroll(this);
                 });
         };
+        // \скролл по якорям
+
+        // замена надписи
+        var time = new Date();
+
+        var my_time = time.getHours();
+        if(!(8 <= my_time <= 21)) {
+            document.querySelectorAll(".js-text");
+            for (i = 0; i < document.querySelectorAll(".js-text").length; i++) {
+                document.querySelectorAll(".js-text")[i].innerHTML = "К сожаленью сейчас наш рабочий день завершен, мы работаем с 8:00 до 21:00. А сейчас вы можете заказать звонок в форме.";
+            }
+        }
+
+        // \замена надписи
 
 
 };

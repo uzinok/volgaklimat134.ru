@@ -177,21 +177,22 @@
                                         </div>
                                 </div>
 
-                                <form action="#" class="contact__form">
-                                        <input class="contact__input" type="text" placeholder="ваше имя">
-                                        <input class="contact__input" type="tel" placeholder="ваш телефон">
+                                <form action="#" class="contact__form" id="contact_form">
+                                        <input name="name" class="contact__input" type="text" placeholder="ваше имя">
+                                        <input name="tel" class="contact__input" type="tel" placeholder="ваш телефон">
                                         <div class="select-wrap">
-                                                <select class="contact__select" name="" id="">
-                                                        <option>ваш район города</option>
-                                                        <option>ваш район города</option>
+                                                <select class="contact__select" name="raion">
+                                                        <option value="0">ваш район города</option>
+                                                        <option value="Центральный">Центральный</option>
                                                 </select>
                                         </div>
                                         <div class="select-wrap">
-                                                <select class="contact__select" name="" id="">
-                                                        <option>выберете услугу</option>
+                                                <select class="contact__select" name="service" id="service">
+                                                        <option value="0">выберете услугу</option>
+                                                        <option value="Чистка">Чистка</option>
                                                 </select>
                                         </div>
-                                        <textarea class="contact__textarea" name="" id=""
+                                        <textarea class="contact__textarea" name="review" id="review"
                                                 placeholder="дополнительный комментарий"></textarea>
                                         <button class="contact__submit">Отправить заявку</button>
                                 </form>

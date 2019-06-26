@@ -28,6 +28,7 @@
 }
 
 .contact__form {
+    position: relative;
     width: 270px;
     margin: 0 auto;
     display: flex;
@@ -52,6 +53,7 @@
 .contact__input,
 .contact__select,
 .contact__textarea {
+    display: inline-block;
     display: block;
     margin: 0 0 15px;
     padding: 15px;
@@ -148,6 +150,10 @@
         border-color: @text-color-dark;
         background-color: @button-color
     }
+
+    &:disabled {
+        background-color: #a8a8a8;
+    }
 }
 
 .contact__handshake {
@@ -160,5 +166,26 @@
             line-height: 2;
             font-size: 20px;
             color: @text-color-light;
+    }
+}
+
+.js_error_message {
+    position: absolute;
+    left: 19px;
+    background-color: #ff0000;
+    padding: 8px;
+    display: inline-block;
+    font-size: 14px;
+    color: #ffffff;
+    border-radius: 5px;
+
+    &::after {
+        display: block;
+        content: "";
+        position: absolute;
+        border: 10px solid transparent;
+        border-top-color:  #ff0000;
+        left: 15px;
+        bottom: -20px;
     }
 }

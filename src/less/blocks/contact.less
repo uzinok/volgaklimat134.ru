@@ -52,7 +52,8 @@
 
 .contact__input,
 .contact__select,
-.contact__textarea {
+.contact__textarea,
+.for_textarea {
     display: inline-block;
     display: block;
     margin: 0 0 15px;
@@ -88,8 +89,12 @@
 .contact__textarea {
     border-bottom-color: @text-color-light;
 }
-.contact__textarea {
+.contact__textarea,
+.for_textarea {
     line-height: 15px;
+    word-break: break-all;
+    transition: 0.3s;
+    font-family: Arial, Helvetica, sans-serif;
 }
 .select-wrap {
     position: relative;
@@ -189,3 +194,14 @@
         bottom: -20px;
     }
 }
+
+.for_textarea {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: auto;
+    min-height: 45px;
+    z-index: -999;
+    visibility: hidden;
+    word-break: break-all;
+  }

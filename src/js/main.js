@@ -2,54 +2,101 @@ window.onload = function () {
 
     // проверка формы
 
-    var 
-    form = document.querySelector("#contact_form"),
-    bul = false;
-
-    document.querySelector("[name='review']").addEventListener("keyup", function() {
-        if(document.querySelector(".js_error_message")) document.querySelector(".js_error_message").remove();
-        document.querySelector(".contact__submit").disabled = false;
-
-        if(/href=/.test(document.querySelector("[name='review']").value) || /www./.test(document.querySelector("[name='review']").value) || /http/.test(document.querySelector("[name='review']").value)) {
-            error_message(document.querySelector("[name='review']"), "Вы пытаетесь отправить ссылку?");
-            document.querySelector(".contact__submit").disabled = true;
-        }
-        
-    })
+    var
+        form = document.querySelector("#contact_form"),
+        bul = false;
 
     form.onsubmit = function () {
 
-        if(document.querySelector(".js_error_message")) document.querySelector(".js_error_message").remove();
+        if (document.querySelector(".js_error_message")) document.querySelector(".js_error_message").remove();
 
-        if(document.querySelector("[name='name']").value) {
+        if (document.querySelector("[name='name']").value) {
             bul = true;
         } else {
             error_message(document.querySelector("[name='name']"), "Вы не ввели свое имя!");
             return false;
         }
 
-        if(document.querySelector("[name='tel']").value) {
+        if (document.querySelector("[name='tel']").value) {
             bul = true;
         } else {
             error_message(document.querySelector("[name='tel']"), "Вы не ввели номер телефона!");
             return false;
         }
 
-        if(document.querySelector("[name='raion']").value != 0) {
+        if (document.querySelector("[name='raion']").value != 0) {
             bul = true;
         } else {
             error_message(document.querySelector("[name='raion']"), "Выберете ваш район!");
             return false;
         }
 
-        if(document.querySelector("[name='service']").value != 0) {
+        if (document.querySelector("[name='service']").value != 0) {
             bul = true;
         } else {
             error_message(document.querySelector("[name='service']"), "Выберете услугу!");
             return false;
         }
+
+        // отправка данных
+        if (bul == true) {
+
+            // document.querySelector(".contact__submit").disabled = false;
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('POST', './php/contact_form.php', true);
+
+            xhr.send();
+
+            xhr.onreadystatechange = function () {
+                if (this.readyState != 4) return;
+
+                // по окончании запроса доступны:
+                // status, statusText
+                // responseText, responseXML (при content-type: text/xml)
+
+                if (this.status != 200) {
+                    // обработать ошибку
+                    document.querySelector(".contact__submit").innerHTML = 'ошибка: ' + (this.status ? this.statusText : 'запрос не удался');
+                    return;
+                }else {
+                    alert(xhr.responseText);
+                  }
+
+                // получить результат из this.responseText или this.responseXML
+                document.querySelector(".contact__submit").innerHTML = this.responseText;
+            }
+
+            document.querySelector(".contact__submit").innerHTML = 'Загружаю...'; // (2)
+            document.querySelector(".contact__submit").disabled = true;
+            
+        }
+        // \отправка данных
         return false;
     }
+
+    block = document.querySelector(".for_textarea");
+
+    document.querySelector("[name='review']").addEventListener("keyup", function () {
+
+        var val_text = document.querySelector("[name='review']").value;
+
+        val_text = val_text.replace(/ /g, "&nbsp;");
+        val_text = val_text.replace(/<|>/g, "_");
+
+        block.innerHTML = val_text
+        var height_textarea = block.offsetHeight;
+        document.querySelector("[name='review']").style.height = height_textarea + "px";
+
+        if (document.querySelector(".js_error_message")) document.querySelector(".js_error_message").remove();
+        document.querySelector(".contact__submit").disabled = false;
+
+        if (/href=/.test(document.querySelector("[name='review']").value) || /www./.test(document.querySelector("[name='review']").value) || /http/.test(document.querySelector("[name='review']").value)) {
+            error_message(document.querySelector("[name='review']"), "Вы пытаетесь отправить ссылку?");
+            document.querySelector(".contact__submit").disabled = true;
+        }
+
+    })
 
     // вывод ошибки
     function error_message(err_el, error_text) {
@@ -116,7 +163,7 @@ window.onload = function () {
             document.documentElement.clientHeight ||
             document.body.clientHeight
         var h = scrollTop + h_window;
-        if (!(my_section.offsetTop + my_section.offsetHeight/3 <= scrollTop || h <= my_section.offsetTop + my_section.offsetHeight/3)) {
+        if (!(my_section.offsetTop + my_section.offsetHeight / 3 <= scrollTop || h <= my_section.offsetTop + my_section.offsetHeight / 3)) {
             document.querySelector(".main-menu__button[href='#" + my_section.id + "']").classList.add("active");
         } else {
             document.querySelector(".main-menu__button[href='#" + my_section.id + "']").classList.remove("active");
@@ -131,13 +178,13 @@ window.onload = function () {
         })
     });
 
-    
-        // my_light_link_nav(section_scroll[3]);
 
-        // document.addEventListener("scroll", () => {
-        //     my_light_link_nav(section_scroll[3]);
-        // })
-    
+    // my_light_link_nav(section_scroll[3]);
+
+    // document.addEventListener("scroll", () => {
+    //     my_light_link_nav(section_scroll[3]);
+    // })
+
 
 
 

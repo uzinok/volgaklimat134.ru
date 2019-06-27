@@ -8,7 +8,7 @@ if(isset($_POST["name"])) {
 	$review = "Нет дополнительного сообщения";
 
 	if(isset($_POST["review"])) {
-		$review =  $_POST["review"];
+		$review =  htmlspecialchars($_POST["review"], ENT_QUOTES);
 	}
 
 	// отправка почты

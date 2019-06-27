@@ -8,6 +8,31 @@ window.onload = function () {
         param = "";
 
 
+
+    block = document.querySelector(".for_textarea");
+
+    document.querySelector("[name='review']").addEventListener("keyup", function () {
+
+        var val_text = document.querySelector("[name='review']").value;
+
+        val_text = val_text.replace(/ /g, "&nbsp;");
+        val_text = val_text.replace(/<|>/g, "_");
+
+        block.innerHTML = val_text
+        var height_textarea = block.offsetHeight;
+        document.querySelector("[name='review']").style.height = height_textarea + "px";
+
+        if (document.querySelector(".js_error_message")) document.querySelector(".js_error_message").remove();
+        document.querySelector(".contact__submit").disabled = false;
+
+        if (/href=/.test(document.querySelector("[name='review']").value) || /www./.test(document.querySelector("[name='review']").value) || /http/.test(document.querySelector("[name='review']").value)) {
+            error_message(document.querySelector("[name='review']"), "Вы пытаетесь отправить ссылку?");
+            document.querySelector(".contact__submit").disabled = true;
+        }
+
+    })
+
+
     form.onsubmit = function () {
 
         if (document.querySelector(".js_error_message")) document.querySelector(".js_error_message").remove();
@@ -44,34 +69,9 @@ window.onload = function () {
             return false;
         }
 
-        if(document.querySelector("[name='review']").value)
-        param += "&review=" + document.querySelector("[name='review']").value;
+        if (document.querySelector("[name='review']").value)
+            param += "&review=" + document.querySelector("[name='review']").value;
 
-        
-    block = document.querySelector(".for_textarea");
-
-    document.querySelector("[name='review']").addEventListener("keyup", function () {
-
-        var val_text = document.querySelector("[name='review']").value;
-
-        val_text = val_text.replace(/ /g, "&nbsp;");
-        val_text = val_text.replace(/<|>/g, "_");
-
-        block.innerHTML = val_text
-        var height_textarea = block.offsetHeight;
-        document.querySelector("[name='review']").style.height = height_textarea + "px";
-
-        if (document.querySelector(".js_error_message")) document.querySelector(".js_error_message").remove();
-        document.querySelector(".contact__submit").disabled = false;
-
-        if (/href=/.test(document.querySelector("[name='review']").value) || /www./.test(document.querySelector("[name='review']").value) || /http/.test(document.querySelector("[name='review']").value)) {
-            error_message(document.querySelector("[name='review']"), "Вы пытаетесь отправить ссылку?");
-            document.querySelector(".contact__submit").disabled = true;
-        }
-
-    })
-
-console.log(param);
         // отправка данных
         if (bul == true) {
 
@@ -95,7 +95,7 @@ console.log(param);
                     // обработать ошибку
                     document.querySelector(".contact__submit").innerHTML = 'ошибка: ' + (this.status ? this.statusText : 'запрос не удался');
                     return;
-                } 
+                }
                 // else {
                 //     // alert(xhr.responseText);
                 //   }
@@ -106,7 +106,7 @@ console.log(param);
 
             document.querySelector(".contact__submit").innerHTML = 'Загружаю...'; // (2)
             document.querySelector(".contact__submit").disabled = true;
-            
+
         }
         // \отправка данных
         return false;

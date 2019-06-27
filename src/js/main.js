@@ -4,7 +4,9 @@ window.onload = function () {
 
     var
         form = document.querySelector("#contact_form"),
-        bul = false;
+        bul = false,
+        param = "";
+
 
     form.onsubmit = function () {
 
@@ -12,6 +14,7 @@ window.onload = function () {
 
         if (document.querySelector("[name='name']").value) {
             bul = true;
+            param += "name=" + document.querySelector("[name='name']").value;
         } else {
             error_message(document.querySelector("[name='name']"), "Вы не ввели свое имя!");
             return false;
@@ -19,6 +22,7 @@ window.onload = function () {
 
         if (document.querySelector("[name='tel']").value) {
             bul = true;
+            param += "&tel=" + document.querySelector("[name='tel']").value;
         } else {
             error_message(document.querySelector("[name='tel']"), "Вы не ввели номер телефона!");
             return false;
@@ -26,6 +30,7 @@ window.onload = function () {
 
         if (document.querySelector("[name='raion']").value != 0) {
             bul = true;
+            param += "&raion=" + document.querySelector("[name='raion']").value;
         } else {
             error_message(document.querySelector("[name='raion']"), "Выберете ваш район!");
             return false;
@@ -33,48 +38,16 @@ window.onload = function () {
 
         if (document.querySelector("[name='service']").value != 0) {
             bul = true;
+            param += "&service=" + document.querySelector("[name='service']").value;
         } else {
             error_message(document.querySelector("[name='service']"), "Выберете услугу!");
             return false;
         }
 
-        // отправка данных
-        if (bul == true) {
+        if(document.querySelector("[name='review']").value)
+        param += "&review=" + document.querySelector("[name='review']").value;
 
-            // document.querySelector(".contact__submit").disabled = false;
-            var xhr = new XMLHttpRequest();
-
-            xhr.open('POST', './php/contact_form.php', true);
-
-            xhr.send();
-
-            xhr.onreadystatechange = function () {
-                if (this.readyState != 4) return;
-
-                // по окончании запроса доступны:
-                // status, statusText
-                // responseText, responseXML (при content-type: text/xml)
-
-                if (this.status != 200) {
-                    // обработать ошибку
-                    document.querySelector(".contact__submit").innerHTML = 'ошибка: ' + (this.status ? this.statusText : 'запрос не удался');
-                    return;
-                }else {
-                    alert(xhr.responseText);
-                  }
-
-                // получить результат из this.responseText или this.responseXML
-                document.querySelector(".contact__submit").innerHTML = this.responseText;
-            }
-
-            document.querySelector(".contact__submit").innerHTML = 'Загружаю...'; // (2)
-            document.querySelector(".contact__submit").disabled = true;
-            
-        }
-        // \отправка данных
-        return false;
-    }
-
+        
     block = document.querySelector(".for_textarea");
 
     document.querySelector("[name='review']").addEventListener("keyup", function () {
@@ -97,6 +70,47 @@ window.onload = function () {
         }
 
     })
+
+console.log(param);
+        // отправка данных
+        if (bul == true) {
+
+            // document.querySelector(".contact__submit").disabled = false;
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('POST', './php/contact_form.php', true);
+
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+            xhr.send(param);
+
+            xhr.onreadystatechange = function () {
+                if (this.readyState != 4) return;
+
+                // по окончании запроса доступны:
+                // status, statusText
+                // responseText, responseXML (при content-type: text/xml)
+
+                if (this.status != 200) {
+                    // обработать ошибку
+                    document.querySelector(".contact__submit").innerHTML = 'ошибка: ' + (this.status ? this.statusText : 'запрос не удался');
+                    return;
+                } 
+                // else {
+                //     // alert(xhr.responseText);
+                //   }
+
+                // получить результат из this.responseText или this.responseXML
+                document.querySelector(".contact__submit").innerHTML = this.responseText;
+            }
+
+            document.querySelector(".contact__submit").innerHTML = 'Загружаю...'; // (2)
+            document.querySelector(".contact__submit").disabled = true;
+            
+        }
+        // \отправка данных
+        return false;
+    }
 
     // вывод ошибки
     function error_message(err_el, error_text) {

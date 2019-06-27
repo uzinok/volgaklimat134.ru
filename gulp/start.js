@@ -11,6 +11,7 @@ gulp.task("server", function () {
     ui: false
   });
 
+  gulp.watch("src/php/*.php", gulp.series("copy"));
   gulp.watch("src/less/**/*.less", gulp.series("less")).on("change", server.reload);
   gulp.watch("src/js/*.js", gulp.series("js")).on("change", server.reload);
   gulp.watch("src/*.html", gulp.series("html")).on("change", server.reload);

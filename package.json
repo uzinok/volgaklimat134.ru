@@ -1,7 +1,7 @@
 {
-  "name": "volgaklimat34ru",
+  "name": "volgaklimat134ru",
   "version": "1.0.0",
-  "description": "for the website http://volgaklimat34.ru/",
+  "description": "for the website http://volgaklimat134.ru/",
   "scripts": {
     "start": "gulp"
   },

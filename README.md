@@ -1,4 +1,4 @@
-Личный проект для сайта «[volgaklimat34.ru](http://volgaklimat34.ru)»
+Личный проект для сайта «[volgaklimat134.ru](http://volgaklimat134.ru)»
 =====================
 
 Создатель шаблона: [Александр Зиновьев](http://uzinok.ru/)

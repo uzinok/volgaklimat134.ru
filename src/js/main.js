@@ -1,4 +1,4 @@
-//  [\+]\d{1}\s[\(]\d{3}[\)]\s\d{3}[\-]\d{2}[\-]\d{2}
+// https://javascript.ru/forum/dom-window/63870-kak-sdelat-masku-telefona-v-input-c-7-___-bez-jquery.html
  window.onload = function () {
 
     // проверка формы

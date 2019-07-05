@@ -22,12 +22,13 @@
     }
 
     &:hover {
-        opacity: 1;
-        position: relative;
-        background-color: @button-color;
-        border: 1px solid @text-color-dark;
 
         @media (min-width: @min-width-tablet) {
+            opacity: 1;
+            position: relative;
+            background-color: @button-color;
+            border: 1px solid @text-color-dark;
+
             &::after {
                 display: block;
                 content: ' 'attr(data-title) ' ';
@@ -43,7 +44,7 @@
                 color: #000000;
                 text-align: center;
             }
-    
+
             &::before {
                 display: block;
                 content: "";

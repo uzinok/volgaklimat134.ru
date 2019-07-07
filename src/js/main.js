@@ -2,73 +2,77 @@ window.onload = function () {
 
     // удаление всех ненужных элементов при взаимодействии со страницей
 
-    document.addEventListener("click", ()=> {
+    document.addEventListener("click", () => {
         if (document.querySelector(".js_error_message")) document.querySelector(".js_error_message").remove();
     })
-    document.addEventListener("touchstart", ()=> {
+    document.addEventListener("touchstart", () => {
         if (document.querySelector(".js_error_message")) document.querySelector(".js_error_message").remove();
     })
-    document.addEventListener("scroll", ()=> {
+    document.addEventListener("scroll", () => {
         if (document.querySelector(".js_error_message")) document.querySelector(".js_error_message").remove();
     })
-    document.addEventListener("keyup", ()=> {
+    document.addEventListener("keyup", () => {
         if (document.querySelector(".js_error_message")) document.querySelector(".js_error_message").remove();
     })
-    document.addEventListener("resize", ()=> {
+    document.addEventListener("resize", () => {
         if (document.querySelector(".js_error_message")) document.querySelector(".js_error_message").remove();
     })
-    
 
     // проверка формы
-
     var
         form = document.querySelector("#contact_form"),
         bul = false,
-        param = "";
+        param = "",
+        block = document.querySelector(".for_textarea");
+
+    // при помощи метода выделения текста в полях ввода текста ставим курсор в нужное положение
+    function setCursorPosition(pos, elem) {
+        elem.focus();
+        elem.setSelectionRange(pos, pos);
+    }
+
+    function mask(event) {
+        // маску получу из placeholder
+        var matrix = input.placeholder,
+            i = 0,
+            // все буквенные символы заменяем на пустую строку
+            def = matrix.replace(/\D/g, ""),
+            val = this.value.replace(/\D/g, "");
+
+        // выравниваем количество символов в маске по введенному количеству символов
+        if (def.length >= val.length) val = def;
+
+        // тут сравниваем последний введенный символ и сравниваем с маской.
+        this.value = matrix.replace(/./g, function (a) {
+            // все знаки "_" заменяем на цыфры, другие сиволы уже отсеяли
+            // далее заменяем все по маске
+            // return /[_\d]/.test(a) && i < val.length ? val.charAt(i++) : i >= val.length ? "" : a;
+            var b = "";
+
+            if (/[_\d]/.test(a) && i < val.length) {
+                b = val.charAt(i++);
+            } else if (!(i >= val.length && a)) {
+                b = a;
+            }
 
 
+            return b;
+        });
+        // если потеряли фокус
+        if (event.type == "blur") {
+            // если только два символа то чистим поле
+            if (this.value.length == 2) this.value = ""
+            // либо ставим курсор в нужное положение
+        } else setCursorPosition(this.value.length, this)
+    };
 
-    block = document.querySelector(".for_textarea");
-
-
-        // при помощи метода выделения текста в полях ввода текста ставим курсор в нужное положение
-        function setCursorPosition(pos, elem) {
-            elem.focus();
-            elem.setSelectionRange(pos, pos);
-                   }
-
-        function mask(event) {
-            // маску получу из placeholder
-            var matrix = document.querySelector("[name='tel']").placeholder,
-                i = 0,
-                // все буквенные символы заменяем на пустую строку
-                def = matrix.replace(/\D/g, ""),
-                val = this.value.replace(/\D/g, "");
-
-            // выравниваем количество символов в маске по введенному количеству символов
-            if (def.length >= val.length) val = def;
-
-            // тут сравниваем последний введенный символ и сравниваем с маской.
-            this.value = matrix.replace(/./g, function (a) {
-                // все знаки "_" заменяем на цыфры, другие сиволы уже отсеяли
-                // далее заменяем все по маске
-                return /[_\d]/.test(a) && i < val.length ? val.charAt(i++) : i >= val.length ? "" : a
-            });
-            // если потеряли фокус
-            if (event.type == "blur") {
-                // если только два символа то чистим поле
-                if (this.value.length == 2) this.value = ""
-                // либо ставим курсор в нужное положение
-            } else setCursorPosition(this.value.length, this)
-        };
-
-        var input = document.querySelector("[name='tel']");
-        // при вводе номера 
-        input.addEventListener("input", mask, false);
-        // при событии фокуса
-        input.addEventListener("focus", mask, false);
-        // при потери фокуса
-        input.addEventListener("blur", mask, false);
+    var input = document.querySelector("[name='tel']");
+    // при вводе номера 
+    input.addEventListener("input", mask, false);
+    // при событии фокуса
+    input.addEventListener("focus", mask, false);
+    // при потери фокуса
+    input.addEventListener("blur", mask, false);
 
     document.querySelector("[name='review']").addEventListener("keyup", function () {
 
@@ -81,7 +85,6 @@ window.onload = function () {
         var height_textarea = block.offsetHeight;
         document.querySelector("[name='review']").style.height = height_textarea + "px";
 
-        // if (document.querySelector(".js_error_message")) document.querySelector(".js_error_message").remove();
         document.querySelector(".contact__submit").disabled = false;
 
         if (/href=/.test(document.querySelector("[name='review']").value) || /www./.test(document.querySelector("[name='review']").value) || /http/.test(document.querySelector("[name='review']").value)) {
@@ -91,10 +94,7 @@ window.onload = function () {
 
     })
 
-
     form.onsubmit = function () {
-
-        
 
         if (document.querySelector("[name='name']").value) {
             bul = true;
@@ -134,7 +134,6 @@ window.onload = function () {
         // отправка данных
         if (bul == true) {
 
-            // document.querySelector(".contact__submit").disabled = false;
             var xhr = new XMLHttpRequest();
 
             xhr.open('POST', './php/contact_form.php', true);
@@ -155,11 +154,7 @@ window.onload = function () {
                     document.querySelector(".contact__submit").innerHTML = 'ошибка: ' + (this.status ? this.statusText : 'запрос не удался');
                     return;
                 }
-                // else {
-                //     // alert(xhr.responseText);
-                //   }
 
-                // получить результат из this.responseText или this.responseXML
                 document.querySelector(".contact__submit").innerHTML = this.responseText;
             }
 
@@ -251,20 +246,8 @@ window.onload = function () {
         })
     });
 
-
-    // my_light_link_nav(section_scroll[3]);
-
-    // document.addEventListener("scroll", () => {
-    //     my_light_link_nav(section_scroll[3]);
-    // })
-
-
-
-
-
     // \подсветка ссылок навигации
     // \меню
-
 
     // функция скрола
     function my_scroll(button_menu) {
@@ -309,6 +292,4 @@ window.onload = function () {
     }
 
     // \замена надписи
-
-
 };

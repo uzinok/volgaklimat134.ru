@@ -1,5 +1,5 @@
 .servic {
-  padding-bottom: 45px;
+  padding-bottom: 70px;
 
   &.nojs {
     .servic__list {
@@ -8,6 +8,10 @@
       justify-content: center;
     }
   }
+}
+
+.servic__list {
+  padding-top: 25px;
 }
 
 .servic__item {
@@ -23,11 +27,6 @@
   width: 90px;
   height: 90px;
   margin-bottom: 30px;
-
-  @media (min-width: @min-width-tablet) {
-    width: 105px;
-    height: 105px;
-  }
 }
 
 .servic__btn {
@@ -46,4 +45,8 @@
   text-align: center;
   font-size: 14px;
   color: @text-color-light;
+
+  @media (min-width: @min-width-tablet) {
+    margin-bottom: 20px;
+  }
 }

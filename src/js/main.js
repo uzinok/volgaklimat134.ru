@@ -1,5 +1,48 @@
 window.onload = function () {
 
+    function my_slider(section_sl) {
+
+        if(document.querySelector("body").clientWidth <= 970) {
+            // удаляем сласс 
+            section_sl.classList.remove("nojs");
+
+            // все элементы списка
+            var items = section_sl.querySelectorAll(".clider-list li");
+            items[0].classList.add("active");
+            
+            // высота самого высокого элемента
+            var max_height = 0;
+            // блок навигации слайдера
+            var action_navigation = section_sl.querySelector(".action__navigation");
+            // значение атрибутов
+            var n = 1;
+            items.forEach(function (item) {
+                // добавляем высоту самого высокого элемента
+                if (max_height < item.clientHeight) max_height = item.clientHeight;
+                // добавляем атрибут элементу
+                item.setAttribute("data-button", n);
+                // создаем кнопку
+                var button = document.createElement("button");
+                // добавляем атрибут кнопке
+                button.setAttribute("data-count", n);
+                action_navigation.appendChild(button);
+
+                n++;
+            });
+
+            // добавляем высоту списку
+            console.log(section_sl.querySelector(".clider-list"));
+            section_sl.querySelector(".clider-list").style.height = max_height + "px";
+
+        }
+    }
+
+    my_slider(document.querySelector(".nojs.servic__js--slider"));
+
+    window.onresize = function () {
+        my_slider(document.querySelector(".nojs.servic__js--slider"));
+    }
+
     // удаление всех ненужных элементов при взаимодействии со страницей
 
     document.addEventListener("click", () => {

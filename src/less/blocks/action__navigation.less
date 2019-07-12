@@ -1,0 +1,29 @@
+.action__navigation {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+
+  & button {
+    display: block;
+    width: 18px;
+    height: 18px;
+    margin: 5px 3px;
+    border-radius: 50%;
+    background-color: #594302;
+    box-sizing: border-box;
+    border: none;
+    outline-color: #a68b03;
+
+    &:hover {
+      opacity: 1;
+      position: relative;
+      background-color: #f6ed65;
+      border: 1px solid #594302;
+    }
+
+    &.active {
+      background-color: #a68b03;
+      box-shadow: 0 0 3px #594302;
+    }
+  }
+}

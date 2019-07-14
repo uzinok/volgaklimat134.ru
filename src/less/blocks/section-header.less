@@ -27,7 +27,13 @@
                 position: absolute;
                 bottom: 0;
                 right: 15px;
+
+                @media (min-resolution: @retina-dpi),
+                (min-resolution: @retina-dppx) {
+                    background-image: url("../img/bg_header_after2x.png");
+                }
             }
+
         }
     }
 

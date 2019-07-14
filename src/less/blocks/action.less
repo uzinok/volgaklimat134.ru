@@ -1,42 +1,11 @@
 .action {
   padding-bottom: 70px;
 
-  & .action__list {
-    position: relative;
-    display: flex;
-    align-items: center;
-
-    & .action__item {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      opacity: 0;
-      transition: 0.3s;
-
-      &.active {
-        opacity: 1;
-        margin: 0;
-      }
-    }
-    
-  }
-
-  &.nojs {
     .action__list {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
     }
-
-    & .action__item {
-      opacity: 1;
-      position: relative;
-      top: auto;
-      left: auto;
-      transform: translateX(0);
-    }
-  }
 }
 
 .action__item {

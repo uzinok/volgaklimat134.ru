@@ -1,28 +1,6 @@
 .servic {
   padding-bottom: 70px;
 
-  & .servic__list {
-    position: relative;
-    display: flex;
-    align-items: center;
-
-    & .servic__item {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      opacity: 0;
-      transition: 0.3s;
-
-      &.active {
-        opacity: 1;
-        margin: 0;
-      }
-    }
-    
-  }
-
-  &.nojs {
     .servic__list {
       display: flex;
       flex-wrap: wrap;
@@ -36,7 +14,6 @@
       left: auto;
       transform: translateX(0);
     }
-  }
 }
 
 .servic__list {

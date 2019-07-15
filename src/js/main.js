@@ -201,6 +201,7 @@ window.onload = function () {
         button_menu.classList.add("main-menu__button");
 
         button_menu.setAttribute("data-title", my_attr);
+        button_menu.setAttribute("aria-label", my_attr);
         button_menu.setAttribute("href", "#" + my_id);
 
         button_menu.addEventListener("mouseover", function () {

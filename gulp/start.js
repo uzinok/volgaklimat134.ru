@@ -1,9 +1,9 @@
-var gulp = require("gulp");
-var server = require("browser-sync").create();
+var gulp = require("gulp"),
+    server = require("browser-sync");
 
 gulp.task("server", function () {
   server.init({
-    server: "build/",
+    server: {baseDir: "./build"},
     injectChanges: true,
     notify: true,
     open: true,
@@ -11,8 +11,7 @@ gulp.task("server", function () {
     ui: false
   });
 
-  gulp.watch("src/php/*.php", gulp.series("copy"));
-  gulp.watch("src/less/**/*.less", gulp.series("less")).on("change", server.reload);
+  gulp.watch("src/less/**/*.less", gulp.series("less")).on("change", server.stream);
   gulp.watch("src/js/*.js", gulp.series("js")).on("change", server.reload);
   gulp.watch("src/*.html", gulp.series("html")).on("change", server.reload);
   gulp.watch("src/template/*.html", gulp.series("html")).on("change", server.reload);
@@ -20,4 +19,4 @@ gulp.task("server", function () {
 });
 
 gulp.task("build", gulp.series("clean", "copy", "copy_script", "less", "js", "html",));
-gulp.task("start", gulp.series("build", "server"));
+gulp.task("default", gulp.series("build", "server"));

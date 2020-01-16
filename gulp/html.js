@@ -1,7 +1,7 @@
-var gulp = require("gulp");
-var posthtml = require("gulp-posthtml");
-var include = require("posthtml-include");
-var htmlmin = require("gulp-htmlmin");
+var gulp = require("gulp"),
+    posthtml = require("gulp-posthtml"),
+    include = require("posthtml-include"),
+    htmlmin = require("gulp-htmlmin");
 
 gulp.task("html", function () {
   return gulp.src("src/*.html")
@@ -13,3 +13,5 @@ gulp.task("html", function () {
     }))
     .pipe(gulp.dest("build"));
 });
+
+// В зависимости от операционной системы уведомления от notify могут не отображаться на рабочем столе

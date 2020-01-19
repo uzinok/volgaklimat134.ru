@@ -46,10 +46,7 @@ header {
 
 @media (min-width: @min-md) {
   .header__wrap {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-
+    
     &::before {
       content: "";
       display: block;
@@ -71,9 +68,11 @@ header {
   }
 
   .header__list-phone {
-    display: flex;
+    float: right;
+    display: inline-flex;
     flex-direction: column;
     justify-content: space-around;
+    height: 75px;
   }
   .header__link-phone {
     padding: 0;

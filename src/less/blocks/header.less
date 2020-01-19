@@ -2,10 +2,6 @@ header {
   display: block;
 }
 
-.header__wrap {
-  padding: 0;
-}
-
 .header__list-phone {
   list-style: none;
   margin: 0;
@@ -13,7 +9,7 @@ header {
 }
 
 .header__item-phone {
-  
+
   &:first-child .header__link-phone {
     padding-top: 14px;
   }
@@ -25,7 +21,7 @@ header {
 
 .header__link-phone {
   display: inline-block;
-  padding: 7px;
+  padding: 7px 0;
   width: 100%;
   text-align: center;
   font-size: 18px;
@@ -46,7 +42,7 @@ header {
 
 @media (min-width: @min-md) {
   .header__wrap {
-    
+
     &::before {
       content: "";
       display: block;
@@ -74,16 +70,18 @@ header {
     justify-content: space-around;
     height: 75px;
   }
+
   .header__link-phone {
     padding: 0;
     color: #ffffff;
   }
+
   .header__item-phone {
-  
+
     &:first-child .header__link-phone {
       padding-top: 0;
     }
-  
+
     &:last-child .header__link-phone {
       padding-bottom: 0;
     }

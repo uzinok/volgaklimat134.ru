@@ -1,0 +1,23 @@
+.btn {
+    display: inline-block;
+    padding: 0.5em 1em;
+    background-color: @color-dark-light;
+    line-height: 1;
+    color: #ffffff;
+    font-size: 16px;
+    text-decoration: none;
+    transition: background-color @transition, opacity @transition;
+
+    &:hover {
+        background-color: @color-dark;
+        color: #ffffff;
+    }
+
+    &:active {
+        opacity: 0.9;
+    }
+
+    @media (min-width: @min-md) {
+        font-size: 20px;
+    }
+}

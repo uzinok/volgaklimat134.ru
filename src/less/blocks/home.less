@@ -1,6 +1,31 @@
 .home {
     position: relative;
 
+    &::after
+    // &::before
+     {
+        content: "";
+        display: block;
+        width: 50px;
+        height: 50px;
+        background-image: url(../img/snow.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        position: absolute;
+        z-index: -1;
+    }
+
+    &::after {
+        top: 74%;
+        left: 73%;
+    }
+
+}
+
+.home__wrap {
+    text-align: center;
+
     &::after,
     &::before {
         content: "";
@@ -12,50 +37,15 @@
         background-position: center;
         background-size: cover;
         position: absolute;
-        opacity: 20%;
-    }
-
-    &::before {
-        top: 50%;
-        left: 41%;
-    }
-
-    &::after {
-        top: 74%;
-        left: 73%;
-    }
-
-    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-        &::before,
-        &::after {
-            display: none;
-        }
-    }
-}
-
-.home__wrap {
-    text-align: center;
-
-    &::before {
-        content: "";
-        display: block;
-        width: 50px;
-        height: 50px;
-        background-image: url(../img/snow.svg);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        position: absolute;
-        opacity: 20%;
+        z-index: -1;
         
         top: 74%;
         left: 14%;
     }
 
-    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-        &::before {
-            display: none;
-        }
+    &::after {
+        top: 50%;
+        left: 41%;
     }
 }
 

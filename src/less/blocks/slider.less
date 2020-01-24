@@ -6,5 +6,62 @@
     &.noJs {
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 60px;
+        margin-bottom: 60px;
+
+        & .slider__item {
+            margin-bottom: 30px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+.slider__item {
+    width: 240px;
+    padding: 10px 10px 0;
+    box-sizing: border-box;
+
+    @media (min-width: @min-md) {
+        width: 315px;
+        padding: 15px 15px 0;
+    }
+
+    &.active {
+        border: 1px solid @color-dark-light;
+    }
+}
+
+.slider__icon {
+    width: 60px;
+    height: 60px;
+    display: block;
+    margin: 0 auto;
+
+    @media (min-width: @min-md) {
+        width: 90px;
+        height: 90px;
+    }
+}
+
+.slider__title {
+    font-weight: normal;
+    text-align: center;
+    font-size: 18px;
+
+    @media (min-width: @min-md) {
+        font-size: 20px;
+    }
+}
+
+.slider__text {
+    font-size: 14px;
+    text-align: center;
+
+    @media (min-width: @min-md) {
+        font-size: 16px;
     }
 }

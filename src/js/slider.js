@@ -18,21 +18,28 @@ function slider(sliderList) {
     sliderWrapList.appendChild(sliderList);
 
     // кнопки вперд/назад
-    let sliderNext = document.createElement('button');
-    sliderNext.classList.add('slider__next');
-    sliderWrap.appendChild(sliderNext);
-    
-    let sliderPrew = document.createElement('button');
-    sliderPrew.classList.add('slider__prew');
-    sliderWrap.appendChild(sliderPrew);
 
+    let sliderNext = createButton('slider__next', sliderWrap, 'следующий слайд');
+
+    let sliderPrew = createButton('slider__prew', sliderWrap, 'предидущий слайд');
+
+    // пагер
     let pager = document.createElement('div');
     pager.classList.add('pager');
     sliderWrap.appendChild(pager);
 
+    // кнопки пагера
     for (let i = 0; i < sliderItems.length; i++) {
-        let pagerButton = document.createElement('button');
-        pager.classList.add('pager-button');
-        pager.appendChild(pagerButton);
+        let pagerButton = createButton('pager-button', pager, 'показать слайд номер: ' + ( i + 1), i);
+        sliderItems[i].setAttribute('data-slide', i);
+    }
+
+    function createButton(buttonClass, buttonParent, ariaText, i) {
+        let elem = document.createElement('button');
+        elem.classList.add(buttonClass);
+        elem.setAttribute('aria-label', ariaText);
+        if(i != undefined)elem.setAttribute('data-slide', i);
+        buttonParent.appendChild(elem);
+        return elem;
     }
 }

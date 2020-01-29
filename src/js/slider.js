@@ -85,5 +85,16 @@ function slider(sliderList) {
             }
         }
 
+        if (widthWindow >= 985) {
+            sliderList.style.width = 300 * sliderItems.length + 'px';
+            sliderWrapList.style.width = 300 * 3 + 'px';
+        } else if (widthWindow >= 768){
+            sliderList.style.width = 300 * sliderItems.length + 'px';
+            sliderWrapList.style.width = 300 * 2 + 'px';
+        } else {
+            sliderList.style.width = 240 * sliderItems.length + 'px';
+            sliderWrapList.style.width = 240 + 'px';
+        }
+
     }
 }

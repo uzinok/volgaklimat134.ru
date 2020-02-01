@@ -2,7 +2,8 @@ function slider(sliderList) {
 
     // родитель слайдера
     let parentSlider = sliderList.parentNode,
-        sliderItems = sliderList.querySelectorAll('li');
+        sliderItems = sliderList.querySelectorAll('li'),
+        count = 0;
 
     // враппер всего слайдера
     let sliderWrap = document.createElement('div');
@@ -23,6 +24,7 @@ function slider(sliderList) {
 
         let sliderPrew = createButton('slider__prew', sliderWrap, 'предидущий слайд');
 
+
         // пагер
         let pager = document.createElement('div');
         pager.classList.add('pager');
@@ -30,8 +32,15 @@ function slider(sliderList) {
 
         // кнопки пагера
         for (let i = 0; i < sliderItems.length; i++) {
-            let pagerButton = createButton('pager-button', pager, 'показать слайд номер: ' + (i + 1), i);
+            pagerButton = createButton('pager-button', pager, 'показать слайд номер: ' + (i + 1), i);
             sliderItems[i].setAttribute('data-slide', i);
+            if (i == 0) {
+                pagerButton.classList.add('active')
+            }
+            pagerButton.addEventListener('click', function () {
+                count = i;
+                pagerClick();
+            })
         }
 
         function createButton(buttonClass, buttonParent, ariaText, i) {
@@ -48,6 +57,9 @@ function slider(sliderList) {
         parentSlider.querySelector('.slider__next').remove();
         parentSlider.querySelector('.slider__prew').remove();
         parentSlider.querySelector('.pager').remove();
+
+        parentSlider.querySelector('li.active').classList.remove('active');
+        // parentSlider.querySelector('button.active').classList.remove('active');
     }
 
     checkCreateElements()
@@ -59,6 +71,7 @@ function slider(sliderList) {
 
     // безопасный resize
     let check;
+
     function windowResize() {
         clearTimeout(check);
 
@@ -76,19 +89,33 @@ function slider(sliderList) {
 
         if (widthWindow >= 985 && sliderItems.length == 3) {
             if (parentSlider.querySelector('.slider__next')) {
-                console.log('hi!');
                 removeElements();
             }
         } else {
             if (!(parentSlider.querySelector('.slider__next'))) {
                 createElements();
+
+                sliderList.querySelector('li').classList.add('active');
+                parentSlider.querySelector('.slider__prew').disabled = true;
+
+
+                parentSlider.querySelector('.slider__next').addEventListener('click', function () {
+                    count++;
+                    pagerClick();
+                })
+
+                parentSlider.querySelector('.slider__prew').addEventListener('click', function () {
+                    count--;
+                    pagerClick();
+                })
+
             }
         }
 
         if (widthWindow >= 985) {
             sliderList.style.width = 300 * sliderItems.length + 'px';
             sliderWrapList.style.width = 300 * 3 + 'px';
-        } else if (widthWindow >= 768){
+        } else if (widthWindow >= 768) {
             sliderList.style.width = 300 * sliderItems.length + 'px';
             sliderWrapList.style.width = 300 * 2 + 'px';
         } else {
@@ -96,5 +123,28 @@ function slider(sliderList) {
             sliderWrapList.style.width = 240 + 'px';
         }
 
+    }
+
+    function pagerClick() {
+        if (parentSlider.querySelector('.slider__prew').disabled = true) {
+            parentSlider.querySelector('.slider__prew').disabled = false;
+        }
+
+        if (parentSlider.querySelector('.slider__next').disabled = true) {
+            parentSlider.querySelector('.slider__next').disabled = false;
+        }
+
+        if (count == 0) {
+            parentSlider.querySelector('.slider__prew').disabled = true;
+        }
+
+        if (count == (sliderItems.length - 1)) {
+            parentSlider.querySelector('.slider__next').disabled = true;
+        }
+
+        parentSlider.querySelector('li.active').classList.remove('active');
+        parentSlider.querySelector('li[data-slide="' + count + '"]').classList.add('active');
+        parentSlider.querySelector('button.active').classList.remove('active');
+        parentSlider.querySelector('button[data-slide="' + count + '"]').classList.add('active');
     }
 }

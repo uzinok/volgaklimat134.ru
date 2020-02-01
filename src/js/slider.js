@@ -80,6 +80,7 @@ function slider(sliderList) {
 
             // фенкции для resize
             checkCreateElements();
+            sliderClick()
         }, 100)
     }
 
@@ -88,7 +89,7 @@ function slider(sliderList) {
 
         let widthWindow = window.innerWidth;
 
-        if (widthWindow >= 985 && sliderItems.length == 3) {
+        if (widthWindow > 985 && sliderItems.length == 3) {
             if (parentSlider.querySelector('.slider__next')) {
                 removeElements();
             }
@@ -113,10 +114,10 @@ function slider(sliderList) {
             }
         }
 
-        if (widthWindow >= 985) {
+        if (widthWindow > 985) {
             sliderList.style.width = widthDecktop * sliderItems.length + 'px';
             sliderWrapList.style.width = widthDecktop * 3 + 'px';
-        } else if (widthWindow >= 768) {
+        } else if (widthWindow > 767) {
             sliderList.style.width = widthDecktop * sliderItems.length + 'px';
             sliderWrapList.style.width = widthDecktop * 2 + 'px';
         } else {
@@ -127,37 +128,42 @@ function slider(sliderList) {
     }
 
     function sliderClick() {
-        if (parentSlider.querySelector('.slider__prew').disabled = true) {
-            parentSlider.querySelector('.slider__prew').disabled = false;
+
+        if (parentSlider.querySelector('.slider__prew')) {
+
+            if (parentSlider.querySelector('.slider__prew').disabled = true) {
+                parentSlider.querySelector('.slider__prew').disabled = false;
+            }
+
+            if (parentSlider.querySelector('.slider__next').disabled = true) {
+                parentSlider.querySelector('.slider__next').disabled = false;
+            }
+
+            if (count == 0) {
+                parentSlider.querySelector('.slider__prew').disabled = true;
+            }
+
+            if (count == (sliderItems.length - 1)) {
+                parentSlider.querySelector('.slider__next').disabled = true;
+            }
+
+
+            parentSlider.querySelector('li.active').classList.remove('active');
+            parentSlider.querySelector('li[data-slide="' + count + '"]').classList.add('active');
+            parentSlider.querySelector('button.active').classList.remove('active');
+            parentSlider.querySelector('button[data-slide="' + count + '"]').classList.add('active');
         }
 
-        if (parentSlider.querySelector('.slider__next').disabled = true) {
-            parentSlider.querySelector('.slider__next').disabled = false;
-        }
-
-        if (count == 0) {
-            parentSlider.querySelector('.slider__prew').disabled = true;
-        }
-
-        if (count == (sliderItems.length - 1)) {
-            parentSlider.querySelector('.slider__next').disabled = true;
-        }
-
-        parentSlider.querySelector('li.active').classList.remove('active');
-        parentSlider.querySelector('li[data-slide="' + count + '"]').classList.add('active');
-        parentSlider.querySelector('button.active').classList.remove('active');
-        parentSlider.querySelector('button[data-slide="' + count + '"]').classList.add('active');
-
-        if (window.innerWidth <= 768) {
+        if (window.innerWidth < 767) {
             sliderList.style.transform = 'translateX(-' + widthWap * count + 'px)';
-        } else if (window.innerWidth <= 985) {
-            if ( !(count == (sliderItems.length - 1)) ) {
+        } else if (window.innerWidth < 985) {
+            if (!(count == (sliderItems.length - 1))) {
                 sliderList.style.transform = 'translateX(-' + widthDecktop * count + 'px)';
             } else {
                 sliderList.style.transform = 'translateX(-' + widthDecktop * (sliderItems.length - 2) + 'px)';
             }
         } else {
-            if ( !(count >= (sliderItems.length - 2)) ) {
+            if (!(count >= (sliderItems.length - 2))) {
                 sliderList.style.transform = 'translateX(-' + widthDecktop * count + 'px)';
             } else {
                 sliderList.style.transform = 'translateX(-' + widthDecktop * (sliderItems.length - 3) + 'px)';

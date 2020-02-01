@@ -3,7 +3,9 @@ function slider(sliderList) {
     // родитель слайдера
     let parentSlider = sliderList.parentNode,
         sliderItems = sliderList.querySelectorAll('li'),
-        count = 0;
+        count = 0,
+        widthWap = 240,
+        widthDecktop = 300;
 
     // враппер всего слайдера
     let sliderWrap = document.createElement('div');
@@ -39,7 +41,7 @@ function slider(sliderList) {
             }
             pagerButton.addEventListener('click', function () {
                 count = i;
-                pagerClick();
+                sliderClick();
             })
         }
 
@@ -59,10 +61,9 @@ function slider(sliderList) {
         parentSlider.querySelector('.pager').remove();
 
         parentSlider.querySelector('li.active').classList.remove('active');
-        // parentSlider.querySelector('button.active').classList.remove('active');
     }
 
-    checkCreateElements()
+    checkCreateElements();
 
     // resize
     window.addEventListener('resize', function () {
@@ -101,31 +102,31 @@ function slider(sliderList) {
 
                 parentSlider.querySelector('.slider__next').addEventListener('click', function () {
                     count++;
-                    pagerClick();
+                    sliderClick();
                 })
 
                 parentSlider.querySelector('.slider__prew').addEventListener('click', function () {
                     count--;
-                    pagerClick();
+                    sliderClick();
                 })
 
             }
         }
 
         if (widthWindow >= 985) {
-            sliderList.style.width = 300 * sliderItems.length + 'px';
-            sliderWrapList.style.width = 300 * 3 + 'px';
+            sliderList.style.width = widthDecktop * sliderItems.length + 'px';
+            sliderWrapList.style.width = widthDecktop * 3 + 'px';
         } else if (widthWindow >= 768) {
-            sliderList.style.width = 300 * sliderItems.length + 'px';
-            sliderWrapList.style.width = 300 * 2 + 'px';
+            sliderList.style.width = widthDecktop * sliderItems.length + 'px';
+            sliderWrapList.style.width = widthDecktop * 2 + 'px';
         } else {
-            sliderList.style.width = 240 * sliderItems.length + 'px';
-            sliderWrapList.style.width = 240 + 'px';
+            sliderList.style.width = widthWap * sliderItems.length + 'px';
+            sliderWrapList.style.width = widthWap + 'px';
         }
 
     }
 
-    function pagerClick() {
+    function sliderClick() {
         if (parentSlider.querySelector('.slider__prew').disabled = true) {
             parentSlider.querySelector('.slider__prew').disabled = false;
         }
@@ -146,5 +147,22 @@ function slider(sliderList) {
         parentSlider.querySelector('li[data-slide="' + count + '"]').classList.add('active');
         parentSlider.querySelector('button.active').classList.remove('active');
         parentSlider.querySelector('button[data-slide="' + count + '"]').classList.add('active');
+
+        if (window.innerWidth <= 768) {
+            sliderList.style.transform = 'translateX(-' + widthWap * count + 'px)';
+        } else if (window.innerWidth <= 985) {
+            if ( !(count == (sliderItems.length - 1)) ) {
+                sliderList.style.transform = 'translateX(-' + widthDecktop * count + 'px)';
+            } else {
+                sliderList.style.transform = 'translateX(-' + widthDecktop * (sliderItems.length - 2) + 'px)';
+            }
+        } else {
+            if ( !(count >= (sliderItems.length - 2)) ) {
+                sliderList.style.transform = 'translateX(-' + widthDecktop * count + 'px)';
+            } else {
+                sliderList.style.transform = 'translateX(-' + widthDecktop * (sliderItems.length - 3) + 'px)';
+            }
+        }
+
     }
 }

@@ -3,6 +3,8 @@
     padding: 0;
     margin: 0;
     display: flex;
+    transition:  transform @transition * 2;
+
 
     &.noJs {
         flex-wrap: wrap;
@@ -25,6 +27,7 @@
     width: 240px;
     padding: 10px 10px 0;
     box-sizing: border-box;
+    border: 1px solid transparent;
 
     @media (min-width: @min-md) {
         width: 315px;
@@ -32,7 +35,7 @@
     }
 
     &.active {
-        border: 1px solid @color-dark-light;
+        border-color: @color-dark-light;
     }
 }
 

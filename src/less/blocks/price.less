@@ -1,0 +1,35 @@
+.price__table {
+    width: 100%;
+    max-width: 290px;
+    margin: 30px auto;
+    border-spacing: 0;
+
+    & th {
+        color: @color-dark;
+        font-weight: normal;
+    }
+
+    & th,
+    & td {
+        padding: 5px 0;
+    }
+
+    & th:first-child,
+    & td:first-child {
+        text-align: left;
+    }
+
+    & th:last-child,
+    & td:last-child {
+        text-align: right;
+    }
+
+    & tr {
+        cursor: pointer;
+        transition: background-color @transition;
+
+        &:hover {
+            background-color: rgba(@color-light, 0.2);
+        }
+    }
+}

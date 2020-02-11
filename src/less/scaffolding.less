@@ -36,6 +36,24 @@ a {
   }
 }
 
+input[type="text"],
+input[type="tel"],
+button,
+select,
+textarea {
+
+  &:hover {
+    border-color: @color-contrast;
+  }
+
+  &:active {
+    border-color: @color-dark;
+  }
+  &:focus {
+    outline-color: @color-contrast;
+  }
+}
+
 .logo {
   display: inline-block;
   width: 100%;

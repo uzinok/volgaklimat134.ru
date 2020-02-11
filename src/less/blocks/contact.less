@@ -1,0 +1,58 @@
+.contact__link-phone {
+    display: inline-block;
+    text-align: center;
+    line-height: 48px;
+}
+
+.contact__form {
+    width: 100%;
+    max-width: 385px;
+    margin: 0 auto;
+}
+
+.input-inner,
+.contact__btn {
+    margin: 0 0 15px;
+    padding: 0 0 0 11px;
+    display: block;
+    width: 100%;
+    height: 48px;
+    box-sizing: border-box;
+    border: 1px solid @color-light;
+    font-size: 16px;
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    line-height: 48px;
+    color: #000000;
+    appearance: none;
+    background-color: transparent;
+}
+
+::placeholder {
+    color: @color-light;
+}
+
+.contact__btn {
+    width: 100%;
+    background-color: @color-contrast;
+    border: none;
+    appearance: none;
+    color: #ffffff;
+}
+
+.select-inner {
+    position: relative;
+
+    &::after {
+        content: "";
+        width: 20px;
+        height: 20px;
+        border: 1px solid transparent;
+        border-bottom: 1px solid  @color-light;
+        border-left: 1px solid  @color-light;
+        transform: rotate(-45deg);
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        z-index: -1;
+    }
+}

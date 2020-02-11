@@ -200,49 +200,56 @@
 
       <div class="contact__block">
         <div class="contact__text">
-          <p>
+          <p class="subtitle">
             Контактные телефоны:
+            <br>
             <a href="tel:+78442505685" class="contact__link-phone">+7(8442)505-685</a>
+            <br>
             <a href="tel:+79377137024" class="contact__link-phone">+7(937)713-70-24</a>
+            <br>
             с 8:00 до 21:00 или заполните форму
           </p>
         </div>
         <form class="contact__form" method="POST" action="#">
 
           <label for="name" class="visually-hidden">Введите ваше имя</label>
-          <input type="text" name="name" id="name" placeholder="ваше имя">
+          <input type="text" name="name" id="name" placeholder="ваше имя" class="input-inner">
 
           <label for="tel" class="visually-hidden">Введите номер телефона для связи с вами</label>
-          <input type="tel" name="tel" id="tel" placeholder="+7 (___) ___-__-__">
+          <input type="tel" name="tel" id="tel" placeholder="+7 (___) ___-__-__" class="input-inner">
 
           <label for="raion" class="visually-hidden">выберите район города в котором неоходима наша помощь</label>
-          <select name="raion" id="raion">
-            <option value="0">ваш район города</option>
-            <option value="советский">советский</option>
-            <option value="кировский">кировский</option>
-            <option value="дзержинский">дзержинский</option>
-            <option value="красноармейский">красноармейский</option>
-            <option value="тракторный">тракторный</option>
-            <option value="ворошиловский">ворошиловский</option>
-            <option value="центральный">центральный</option>
-            <option value="спартановка">спартановка</option>
-            <option value="красноактябрьский">красноактябрьский</option>
-            <option value="поселок максима горького">поселок максима горького</option>
-            <option value="р.п. городище">р.п. городище</option>
-          </select>
-
+          <div class="select-inner">
+            <select name="raion" id="raion" class="input-inner">
+              <option value="0">ваш район города</option>
+              <option value="советский">советский</option>
+              <option value="кировский">кировский</option>
+              <option value="дзержинский">дзержинский</option>
+              <option value="красноармейский">красноармейский</option>
+              <option value="тракторный">тракторный</option>
+              <option value="ворошиловский">ворошиловский</option>
+              <option value="центральный">центральный</option>
+              <option value="спартановка">спартановка</option>
+              <option value="красноактябрьский">красноактябрьский</option>
+              <option value="поселок максима горького">поселок максима горького</option>
+              <option value="р.п. городище">р.п. городище</option>
+            </select>
+          </div>
+          
           <label for="service" class="visually-hidden">выберите услугу, необходимую для вашей сплит-системы</label>
-          <select name="service" id="service">
-            <option value="0">выберете услугу</option>
-            <option value="чистка">чистка</option>
-            <option value="ремонт">ремонт</option>
-            <option value="монтаж">монтаж</option>
-            <option value="демонтаж">демонтаж</option>
-            <option value="заправка">заправка</option>
-          </select>
+          <div class="select-inner">
+            <select name="service" id="service" class="input-inner">
+              <option value="0">выберете услугу</option>
+              <option value="чистка">чистка</option>
+              <option value="ремонт">ремонт</option>
+              <option value="монтаж">монтаж</option>
+              <option value="демонтаж">демонтаж</option>
+              <option value="заправка">заправка</option>
+            </select>
+          </div>
 
           <label for="text" class="visually-hidden"> опишите кратко неисправность или какие либо особенности</label>
-          <textarea name="text" id="text" placeholder="Дополнительный комментарий"></textarea>
+          <textarea name="text" id="text" placeholder="Дополнительный комментарий" class="input-inner"></textarea>
 
           <button class="btn contact__btn">отправить заявку</button>
 
@@ -257,7 +264,7 @@
 
 
 
-  <!--
+
 
   <svg width="300">
     <use xlink:href="#handshake"></use>
@@ -269,7 +276,7 @@
 
   <img width="300" src="img/snow.svg" alt="">
 
-  <img width="300" src="img/split.png" alt=""> -->
+  <img width="300" src="img/split.png" alt="">
 
 </main>
 <include src="src/template/footer.html"></include>

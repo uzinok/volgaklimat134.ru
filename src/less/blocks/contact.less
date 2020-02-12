@@ -77,6 +77,10 @@
 .select-inner {
     position: relative;
 
+    select::-ms-expand {
+        display: none;
+    }
+
     &::after {
         content: "";
         width: 20px;

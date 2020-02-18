@@ -4,7 +4,6 @@ var gulp = require("gulp"),
     autoprefixer = require('gulp-autoprefixer'),
     csso = require("gulp-csso"),
     notify = require("gulp-notify"),
-    sourcemaps = require('gulp-sourcemaps'),
     server = require("browser-sync");
 
 gulp.task("less", function () {
@@ -17,14 +16,12 @@ gulp.task("less", function () {
         }
       })
     }))
-    .pipe(sourcemaps.init())
     .pipe(less())
     .pipe(autoprefixer({
       grid: true,
       overrideBrowserslist: ['last 10 versions']
     }))
     .pipe(csso())
-    .pipe(sourcemaps.write())
     .pipe(gulp.dest("build/css"))
     .pipe(server.stream());
 });

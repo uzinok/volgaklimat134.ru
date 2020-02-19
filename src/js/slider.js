@@ -39,9 +39,10 @@ function slider(sliderList) {
             if (i == 0) {
                 pagerButton.classList.add('active')
             }
-            pagerButton.addEventListener('click', function () {
-                count = i;
-                sliderClick();
+            pagerButton.addEventListener('click', function (e) {
+
+                e = e || event
+                sliderClick(e);
             })
         }
 
@@ -127,7 +128,13 @@ function slider(sliderList) {
 
     }
 
-    function sliderClick() {
+    function sliderClick(e) {
+
+        if(e) {
+            console.log(e.target.getAttribute('data-slide'))
+
+            count = e.target.getAttribute('data-slide');
+        }
 
         if (parentSlider.querySelector('.slider__prew')) {
 

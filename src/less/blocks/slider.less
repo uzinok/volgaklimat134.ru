@@ -61,6 +61,20 @@
     @media (min-width: @min-md) {
         font-size: 20px;
     }
+
+    & a {
+        text-decoration: none;
+        font-weight: 700;
+        color: @color-dark-light;
+
+        &:hover {
+            color: @color-contrast;
+        }
+
+        &:active {
+            opacity: 0.7;
+        }
+    }
 }
 
 .slider__text {

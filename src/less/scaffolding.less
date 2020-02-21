@@ -21,7 +21,7 @@ img {
 
 a {
   color: #000000;
-  transition: color @transition;
+  transition: color @transition, opacity @transition;
 
   &:hover {
     color: @color-contrast;
@@ -94,21 +94,6 @@ section {
   display: block;
   overflow: hidden;
 
-  &:nth-child(odd) {
-    position: relative;
-
-    &::before {
-      content: "";
-      display: block;
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      background-color: @color-super-light;
-      z-index: -9;
-    }
-  }
 
   .wrap {
     padding-top: 30px;
@@ -118,6 +103,22 @@ section {
       padding-top: 60px;
       padding-bottom: 60px;
     }
+  }
+}
+
+.home section:nth-child(odd) {
+  position: relative;
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: @color-super-light;
+    z-index: -9;
   }
 }
 

@@ -3,12 +3,14 @@
 
     .nav__list {
         display: none;
+        height: 0%;
     }
 
     &.noJs {
         & .nav__list {
             display: flex;
             padding-top: 10px;
+            height: auto;
         }
 
         & .nav__button {
@@ -21,6 +23,7 @@
             display: flex;
             padding: 10px 0;
         }
+
         & .nav__button {
             display: none;
         }
@@ -35,6 +38,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: height @transition;
 
     @media (min-width: @min-md) {
         flex-direction: row;
@@ -54,5 +58,62 @@
 
     @media (min-width: @min-md) {
         padding: 5px 10px;
+    }
+}
+
+.nav__button {
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 99;
+
+    &::before,
+    &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 30px;
+        height: 2px;
+        background-color: @color-dark-light;
+        left: 50%;
+        transform-origin: left;
+        transition: top @transition, box-shadow @transition, transform @transition;
+        transform: translateX(-50%);
+    }
+
+    &::before {
+        top: 9px;
+        box-shadow: 0 14px 0 @color-dark-light;
+    }
+
+    &::after {
+        bottom: 9px;
+    }
+}
+
+.nav--open {
+    .nav__button {
+        &::before {
+            box-shadow: none;
+            top: 50%;
+            transform: rotate(45deg) translate(-50%, -50%);
+        }
+
+        &::after {
+            top: 50%;
+            transform: rotate(-45deg) translate(-50%, -50%);
+        }
+    }
+
+    .nav__list {
+        display: flex;
+        height: 100%;
     }
 }

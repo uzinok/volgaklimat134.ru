@@ -12,4 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     for (let i = 0; i < sliders.length; i++) {
         slider(sliders[i]);
     }
+
+    // загрузка видео с youtube
+    findVideos();
 })

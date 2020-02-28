@@ -131,7 +131,6 @@ function slider(sliderList) {
     function sliderClick(e) {
 
         if(e) {
-            console.log(e.target.getAttribute('data-slide'))
 
             count = e.target.getAttribute('data-slide');
         }

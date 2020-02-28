@@ -20,7 +20,7 @@ img {
 }
 
 a {
-  color: @color-dark-light;
+  color: @color-dark;
   transition: color @transition, opacity @transition;
 
   &:hover {
@@ -34,6 +34,45 @@ a {
   &:focus {
     outline-color: @color-contrast;
   }
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.italic {
+  font-style: italic;
+}
+
+abbr {
+  text-decoration: none;
+  border-bottom: 2px dotted @color-dark;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.5;
+  text-indent: 1.5em;
+  margin: 0;
+  padding: 0 0 1em;
+
+  & a {
+    font-weight: 700;
+
+    &:visited {
+      color: @color-dark-light;
+    }
+  }
+}
+
+.targetLink {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-image: url(../img/iron-icon.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 input[type="text"],
@@ -176,15 +215,11 @@ section {
   }
 }
 
-p {
-  font-size: 18px;
-  line-height: 1.5;
-  text-indent: 1.5em;
-  margin: 0;
-  padding: 0 0 1em;
-}
-
 .map {
   padding: 1em 0 3em;
   font-size: 14px;
+
+  & a {
+    font-weight: normal;
+  }
 }

@@ -4,6 +4,10 @@ body {
   font-family: 'Open Sans', Arial, Helvetica, sans-serif;
   line-height: 1.4;
   font-weight: 300;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 img {
@@ -60,7 +64,7 @@ abbr {
   font-style: italic;
   font-weight: 400;
 
-  @media (min-width: @min-md){
+  @media (min-width: @min-md) {
     padding: 0 20px;
     margin: 10px 40px;
     border-left: 2px solid #ff0000;
@@ -107,6 +111,7 @@ textarea {
   &:active {
     border-color: @color-dark;
   }
+
   &:focus {
     outline-color: @color-contrast;
   }
@@ -242,4 +247,33 @@ section {
   & a {
     font-weight: normal;
   }
+}
+
+
+.timer {
+  padding: 20px;
+  display: flex;
+  width: 290px;
+  margin: 15px auto;
+  background-color: @color-super-light;
+  border: 1px solid @color-dark-light;
+  box-sizing: border-box;
+
+  & svg {
+    display: inline-block;
+    width: 10px;
+    height: 30px;
+    margin: 0 10px;
+    fill: @color-dark-light;
+  }
+
+  @media (min-width: @min-md) {
+    width: 500px;
+
+    & svg {
+      width: 45px;
+      height: 75px;
+    }
+  }
+
 }

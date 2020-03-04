@@ -16,6 +16,53 @@
 
       <p class="map"><a href="/">Главная</a> / <a href="#">Чистка</a> / <a href="#">Самостоятельная чистка</a></p>
 
+      <form class="wpcf7 calc">
+        <div class="check  elem-calc">
+          <label for="ploshad">Площадь помещения, м<sup>2</sup></label>
+          <input name="ploshad" type="number" id="ploshad" class="input-inner">
+        </div>
+
+        <div class="check  elem-calc">
+          <label for="visota">Высота потолка, м</label>
+          <input name="visota" type="number" id="visota" class="input-inner">
+        </div>
+
+        <div class="check  elem-calc">
+          <label for="insol" id="anchor_">Инсоляция помещения</label>
+          <div class="select-inner">
+            <select name="insol" id="insol" class="input-inner">
+              <option value="40">Сильная</option>
+              <option value="35" selected="selected">Средняя</option>
+              <option value="30">Слабая</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="check  elem-calc">
+          <label for="lyudi">Количество людей</label>
+          <input name="lyudi" type="number" id="lyudi" class="input-inner">
+        </div>
+
+        <div class="check  elem-calc">
+          <label for="kompi">Количество компьютеров</label>
+          <input name="kompi" type="number" id="kompi" class="input-inner">
+        </div>
+
+        <div class="check  elem-calc">
+          <label for="teliki">Количество телевизоров</label>
+          <input name="teliki" type="number" id="teliki" class="input-inner">
+        </div>
+
+
+        <label>Расчетная мощность кондиционера:</label>
+        <input name="moshnost" type="text" value="0" readonly="" class="input-inner">
+
+        <div id="err_calc"></div>
+
+        <button class="btn btn--calc">Рассчитать мощность</button>
+
+      </form>
+
       <p>Экс-граф? Плюш изъят. Бьём чуждый цен хвощ!</p>
 
       <p><a href="404.html">404</a></p>

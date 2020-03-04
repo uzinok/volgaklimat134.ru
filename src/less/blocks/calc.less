@@ -1,0 +1,39 @@
+.calc {
+    margin-bottom: 40px;
+
+    @media (min-width: @min-md) {
+        margin-bottom: 50px;
+    }
+}
+
+.btn--calc {
+    width: 100%;
+}
+
+
+.elem-calc {
+    margin-bottom: 15px;
+
+    .input-inner {
+        margin-bottom: 0;
+    }
+
+    @media (min-width: @min-md) {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .input-inner,
+        label {
+            width: 48%;
+        }
+
+        .select-inner {
+            width: 48%;
+
+            & select {
+                width: 100%;
+            }
+        }
+    }
+}

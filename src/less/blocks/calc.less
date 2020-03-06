@@ -23,7 +23,7 @@
         align-items: center;
         justify-content: space-between;
 
-        .input-inner,
+        .nuber-calc,
         label {
             width: 48%;
         }
@@ -36,4 +36,49 @@
             }
         }
     }
+}
+
+.nuber-calc {
+    display: flex;
+
+    & button {
+        width: 48px;
+        padding: 0;
+    }
+
+    & input {
+        width: 88px;
+    }
+}
+
+.number-down,
+.number-up {
+    margin-bottom: 0;
+    position: relative;
+    overflow: hidden;
+
+
+    &::before {
+        content: "";
+        display: block;
+        width: 20px;
+        height: 20px;
+        border-top: 1px solid @color-light;
+        border-left: 1px solid @color-light;
+        position: absolute;
+        top: 30%;
+        left: 70%;
+        transform: rotate(-45deg) translate(-50%, -50%);
+    }
+}
+
+.number-down::before {
+    top: 30%;
+    left: 70%;
+}
+
+.number-up::before {
+    top: 30%;
+    left: -6%;
+    transform: rotate(135deg) translate(-50%,-50%);
 }

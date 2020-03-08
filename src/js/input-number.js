@@ -13,9 +13,12 @@ document.addEventListener('DOMContentLoaded', function () {
             let numberDown = nuberCalc.querySelector('.number-down'),
                 numberUp = nuberCalc.querySelector('.number-up'),
                 numberInp = nuberCalc.querySelector('[type="number"]'),
-                min = numberInp.getAttribute('min') || 1,
-                max = numberInp.getAttribute('max') || 1100000,
+                min = numberInp.getAttribute('min') || 0,
+                max = numberInp.getAttribute('max') || 100000,
                 step = numberInp.getAttribute('step') || 1;
+
+                numberUp.disabled = false;
+                numberDown.disabled = false;
 
             numberDown.addEventListener('click', function (e) {
 

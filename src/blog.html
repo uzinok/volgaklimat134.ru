@@ -17,70 +17,39 @@
       <p class="map"><a href="/">Главная</a> / <a href="#">Чистка</a> / <a href="#">Самостоятельная чистка</a></p>
 
       <form class="wpcf7 calc">
-        <div class="check  elem-calc">
-          <label for="ploshad">Площадь помещения, м<sup>2</sup></label>
-          <div class="nuber-calc">
-            <button class="number-down" aria-label="уменьшить"></button>
-            <input name="ploshad" type="number" id="ploshad" class="input-inner" step="0.1">
-            <button class="number-up" aria-label="увеличить"></button>
-          </div>
+        <div class="check  elem-calc"> <label for="ploshad">Площадь помещения, м<sup>2</sup></label>
+          <div class="nuber-calc"> <button class="number-down" aria-label="уменьшить" disabled></button> <input
+              name="ploshad" type="number" id="ploshad" class="input-inner" step="0.1" value="1"> <button
+              class="number-up" aria-label="уменьшить" disabled></button> </div>
         </div>
-
-        <div class="check  elem-calc">
-          <label for="visota">Высота потолка, м</label>
-          <div class="nuber-calc">
-            <button class="number-down" aria-label="уменьшить"></button>
-            <input name="visota" type="number" id="visota" class="input-inner" step="0.1">
-            <button class="number-up" aria-label="увеличить"></button>
-          </div>
+        <div class="check  elem-calc"> <label for="visota">Высота потолка, м</label>
+          <div class="nuber-calc"> <button class="number-down" aria-label="уменьшить" disabled></button> <input
+              name="visota" type="number" id="visota" class="input-inner" step="0.1" value="1"> <button
+              class="number-up" aria-label="уменьшить" disabled></button> </div>
         </div>
-
-        <div class="check  elem-calc">
-          <label for="insol" id="anchor_">Инсоляция помещения</label>
-          <div class="select-inner">
-            <select name="insol" id="insol" class="input-inner">
+        <div class="check  elem-calc"> <label for="insol" id="anchor_">Инсоляция помещения</label>
+          <div class="select-inner"> <select name="insol" id="insol" class="input-inner">
               <option value="40">Сильная</option>
               <option value="35" selected="selected">Средняя</option>
               <option value="30">Слабая</option>
-            </select>
-          </div>
+            </select> </div>
         </div>
-
-        <div class="check  elem-calc">
-          <label for="lyudi">Количество людей</label>
-          <div class="nuber-calc">
-            <button class="number-down" aria-label="уменьшить"></button>
-            <input name="lyudi" type="number" id="lyudi" class="input-inner">
-            <button class="number-up" aria-label="увеличить"></button>
-          </div>
+        <div class="check  elem-calc"> <label for="lyudi">Количество людей</label>
+          <div class="nuber-calc"> <button class="number-down" aria-label="уменьшить" disabled></button> <input
+              name="lyudi" type="number" id="lyudi" class="input-inner" value="0"> <button class="number-up"
+              aria-label="уменьшить" disabled></button> </div>
         </div>
-
-        <div class="check  elem-calc">
-          <label for="kompi">Количество компьютеров</label>
-          <div class="nuber-calc">
-            <button class="number-down" aria-label="уменьшить"></button>
-            <input name="kompi" type="number" id="kompi" class="input-inner">
-            <button class="number-up" aria-label="увеличить"></button>
-          </div>
+        <div class="check  elem-calc"> <label for="kompi">Количество компьютеров</label>
+          <div class="nuber-calc"> <button class="number-down" aria-label="уменьшить" disabled></button> <input
+              name="kompi" type="number" id="kompi" class="input-inner" value="0"> <button class="number-up"
+              aria-label="уменьшить" disabled></button> </div>
         </div>
-
-        <div class="check  elem-calc">
-          <label for="teliki">Количество телевизоров</label>
-          <div class="nuber-calc">
-            <button class="number-down" aria-label="уменьшить"></button>
-            <input name="teliki" type="number" id="teliki" class="input-inner">
-            <button class="number-up" aria-label="увеличить"></button>
-          </div>
-        </div>
-
-
-        <label>Расчетная мощность кондиционера:</label>
-        <input name="moshnost" type="text" value="0" readonly="" class="input-inner">
-
-        <div id="err_calc"></div>
-
-        <button class="btn btn--calc">Рассчитать мощность</button>
-
+        <div class="check  elem-calc"> <label for="teliki">Количество телевизоров</label>
+          <div class="nuber-calc"> <button class="number-down" aria-label="уменьшить" disabled></button> <input
+              name="teliki" type="number" id="teliki" class="input-inner" value="0"> <button class="number-up"
+              aria-label="уменьшить" disabled></button> </div>
+        </div> <label>Расчетная мощность кондиционера:</label> <input name="moshnost" type="text" value="0" readonly=""
+          class="input-inner"> <button class="btn btn--calc" disabled>У вас отключен JavaScript</button>
       </form>
 
       <p>Экс-граф? Плюш изъят. Бьём чуждый цен хвощ!</p>

@@ -1,8 +1,10 @@
 .calc {
     margin-bottom: 40px;
+    width: 290px;
 
     @media (min-width: @min-md) {
         margin-bottom: 50px;
+        width: 100%;
     }
 }
 
@@ -47,7 +49,11 @@
     }
 
     & input {
-        width: 88px;
+        width: 194px;
+
+        @media (min-width: @min-md) {
+            width: 88px;
+        }
     }
 }
 
@@ -80,5 +86,5 @@
 .number-up::before {
     top: 30%;
     left: -6%;
-    transform: rotate(135deg) translate(-50%,-50%);
+    transform: rotate(135deg) translate(-50%, -50%);
 }

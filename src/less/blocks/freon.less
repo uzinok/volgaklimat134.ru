@@ -1,0 +1,54 @@
+.freon {
+    width: 100%;
+    text-align: center;
+    border-spacing: 0;
+    padding: 0 0 2em;
+
+    & .title {
+        font-size: 20px;
+        padding: 2em 0 1em;
+    }
+
+    & .freon__info {
+        display: none;
+    }
+
+    & .small {
+        display: block;
+    }
+    
+    & .green {
+        display: block;
+    }
+
+    & th,
+    & td {
+        width: 33%;
+        padding: 5px 4px;
+        border-bottom: 1px solid rgba(@color-light, 0.5);
+    }
+
+    & th {
+        padding: 10px;
+        font-weight: normal;
+    }
+
+    & tr:last-child td {
+        border-bottom: none;
+    }
+
+    & th:first-child,
+    & td:first-child {
+        background-color: rgba(255, 0, 0, 0.1);
+    }
+
+    & th:nth-child(2),
+    & td:nth-child(2) {
+        background-color: rgba(255, 255, 0, 0.1);
+    }
+
+    & th:nth-child(3),
+    & td:nth-child(3) {
+        background-color: rgba(0, 128, 0, 0.1);
+    }
+}

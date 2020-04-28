@@ -61,3 +61,46 @@
     right: 0;
     background-color: rgba(@color-light, 0.5);
 }
+
+.popup {
+    padding: 30px 30px 20px;
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    & p {
+        text-align: center;
+        text-indent: 0;
+    }
+}
+
+.close-popup {
+    position: absolute;
+    top: -14px;
+    right: -14px;
+    appearance: none;
+    background-color: #fff;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+
+    border: 1px solid #000;
+
+    &::before,
+    &::after {
+        content: '';
+        display: block;
+
+        height: 1px;
+        width: 35px;
+        background-color: #000;
+
+        transform: rotate(45deg);
+    }
+
+    &::after {
+        transform: rotate(-45deg);
+    }
+}

@@ -3,7 +3,7 @@
     padding: 0;
     margin: 0;
     display: flex;
-    transition:  transform @transition * 2;
+    transition: transform @transition * 2;
 
 
     &.noJs {
@@ -57,18 +57,35 @@
     font-size: 18px;
     margin: 0;
     padding: 1em 0 0;
-
+    
+    
     @media (min-width: @min-md) {
         font-size: 20px;
     }
-
+    
     & a {
+        position: relative;
         text-decoration: none;
         font-weight: 400;
         color: @color-dark-light;
 
+        &::after {
+            content: '';
+            display: block;
+            width: 100%;
+            border-bottom: 1px solid @color-dark-light;
+            position: absolute;
+            bottom: 3px;
+            left: 0;
+            transition: border @transition;
+        }
+
         &:hover {
             color: @color-contrast;
+
+            &::after {
+                border-color: @color-contrast;
+            }
         }
 
         &:active {
@@ -159,18 +176,18 @@
 .slider__next,
 .slider__prew {
     outline-color: @color-contrast;
-    transition:  background-color @transition, opacity @transition;
+    transition: background-color @transition, opacity @transition;
 
     &:hover {
         background-color: rgba(@color-light, 0.3);
         opacity: 70%;
     }
 
-    &:active  {
+    &:active {
         background-color: rgba(@color-light, 0.3);
         opacity: 100%;
     }
-    
+
 
     &:disabled {
         opacity: 0.3;

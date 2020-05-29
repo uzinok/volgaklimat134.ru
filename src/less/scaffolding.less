@@ -77,18 +77,21 @@ abbr {
 p {
   font-size: 18px;
   line-height: 1.5;
-  text-indent: 1.5em;
   margin: 0;
   padding: 0 0 1em;
-
+  
   & a {
     font-weight: 400;
-
+    
     &:visited {
       color: @color-dark-light;
     }
   }
 }
+
+.single p {
+  text-indent: 1.5em;
+} 
 
 ul {
   margin: 1em 0 2em;
